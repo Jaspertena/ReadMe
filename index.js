@@ -53,6 +53,11 @@ const promptUser = () => {
             name: 'email', 
             message: 'What is your email?',
         },
-        
+        {
+            type: 'rawlist',
+            name: 'License',
+            message: 'Select a License for this project.',
+            choices: ['License A', 'License B', 'License C'],
+        },
 
     ])}
