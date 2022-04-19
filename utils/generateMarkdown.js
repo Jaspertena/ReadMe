@@ -3,7 +3,7 @@ return `
 # ${answers.ProjectName}
 
 ![badge](https://img.shields.io/badge/license-${answers.License}-green)
-![badge](https://img.shields.io/github/languages/count/${answers.Username}/${answers.Repo})
+![badge](https://img.shields.io/github/languages/count/${answers.username}/Readme)
 
 # Description
 ${answers.Purpose}
