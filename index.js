@@ -1,5 +1,8 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
+const util = require('util');
+const generateMarkdown = require('./utils/generateMarkdown');
+
 
 const promptUser = () => {
     return inquirer.prompt([
@@ -20,7 +23,7 @@ const promptUser = () => {
         },
         {
             type: 'input',
-            name: 'Solution', 
+            name: 'Solutions', 
             message: 'What problems does this project solve?',
         },
         {
@@ -39,14 +42,14 @@ const promptUser = () => {
             message: 'Please provide test instructions.',
         },
         {
-            type: 'list',
-            name: 'License', 
-            message: 'Provide license used.',
+            type: 'input',
+            name: 'Repo', 
+            message: 'What is your Repository Name?',
         },
         {
             type: 'input',
-            name: 'GitHub', 
-            message: 'What is your GitHub?',
+            name: 'Username', 
+            message: 'What is your GitHub username ?',
         },
         {
             type: 'input',
@@ -57,7 +60,13 @@ const promptUser = () => {
             type: 'rawlist',
             name: 'License',
             message: 'Select a License for this project.',
-            choices: ['License A', 'License B', 'License C'],
+            choices: ['MIT', 'Apache', 'ISC'],
         },
 
     ])}
+    promptUser()
+        .then((answers) => {
+            fs.writeFileSync('./dest/README.md', generateMarkdown(answers), console.log('Yay, your README.md file has been created!'));
+            
+
+        })
